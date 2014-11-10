@@ -19,9 +19,9 @@ param_grid = {
     'max_depth': [4, 6, 8],
     'min_samples_leaf': [3, 5, 9, 17],
     'subsample': [0.5, 0.7]
-    # 'max_features': [1.0, 0.3, 0.1]
+    'max_features': [1.0, 0.5, 0.3, 0.1]
 }
-est = GradientBoostingRegressor(n_estimators=4000, loss='')
+est = GradientBoostingRegressor(n_estimators=500, loss='ls')
 gs_cv = GridSearchCV(est, param_grid, n_jobs=-1).fit(x_train[:,2:], y_train) #n_jobs denotes running jobs in parallel
 print gs_cv.best_params_
 print log_loss(y_test, gs_cv.predict_proba(x_test))
