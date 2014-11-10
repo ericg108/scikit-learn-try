@@ -151,4 +151,5 @@ param_grid = {
 est = GradientBoostingRegressor(n_estimators=4000)
 gs_cv = GridSearchCV(est, param_grid, n_jobs=-1).fit(x_train, y_train) #n_jobs denotes running jobs in parallel
 print gs_cv.best_params_
+
 # plt.show()
