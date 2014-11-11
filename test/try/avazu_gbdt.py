@@ -5,7 +5,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import log_loss
 
-data_file = '/Users/nenggong/Code/Games/avazu/14100100.csv'
+data_file = '/Users/nenggong/Code/Games/avazu/141001.csv'
 data = np.loadtxt(data_file, dtype=np.str, delimiter=',', skiprows=1)
 # print data.shape, type(data)
 
@@ -18,7 +18,7 @@ param_grid = {
     'learning_rate': [0.1, 0.05, 0.02, 0.01],
     'max_depth': [4, 6, 8],
     'min_samples_leaf': [3, 5, 9, 17],
-    'subsample': [0.5, 0.7]
+    'subsample': [0.5, 0.7],
     'max_features': [1.0, 0.5, 0.3, 0.1]
 }
 est = GradientBoostingRegressor(n_estimators=500, loss='ls')
