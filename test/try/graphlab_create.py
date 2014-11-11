@@ -9,9 +9,10 @@ data.show()
 model = gl.recommender.create(data, user_id="user", item_id="movie", target="rating")
 results = model.recommend(users=None, k=5)
 '''
+dataBasePath = '/Users/nenggong/Code/Games/avazu/'
 training_column_types = [str,int,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str]
 
-data_sframe = gl.SFrame.read_csv('/Users/nenggong/Code/Games/avazu/141001.csv', column_type_hints=training_column_types)
+data_sframe = gl.SFrame.read_csv(dataBasePath+'141001.csv', column_type_hints=training_column_types)
 features = ['hour', 'C1', 'banner_pos', 'site_id', 'site_domain', 'site_category', 'app_id',
             'app_domain', 'app_category', 'device_id', 'device_ip', 'device_os', 'device_make', 'device_model',
             'device_type', 'device_conn_type', 'device_geo_country', 'C17', 'C18', 'C19', 'C20', 'C21', 'C22', 'C23',
@@ -74,7 +75,7 @@ best_est = gl.boosted_trees_regression.create(training, features=new_features, t
                                    params=best_params_click, verbose=False)
 
 test_column_types = [str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str,str]
-test_data = gl.SFrame.read_csv('/Users/nenggong/Code/Games/avazu/test_rev2', column_type_hints=test_column_types)
+test_data = gl.SFrame.read_csv(dataBasePath + 'test_rev2', column_type_hints=test_column_types)
 
 pred = best_est.predict(test_data)
 def make_submission(prediction, filename='submission.txt'):
