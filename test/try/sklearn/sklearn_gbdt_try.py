@@ -153,3 +153,4 @@ gs_cv = GridSearchCV(est, param_grid, n_jobs=-1).fit(x_train, y_train) #n_jobs d
 print gs_cv.best_params_
 
 # plt.show()
+from sklearn.metrics import log_loss

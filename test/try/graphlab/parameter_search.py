@@ -2,7 +2,7 @@ __author__ = 'nenggong'
 
 import graphlab as gl
 
-''' example from graphlab
+''' example from a graphlab blog: http://blog.graphlab.com/using-gradient-boosted-trees-to-predict-bike-sharing-demand
 url = 'http://s3.amazonaws.com/GraphLab-Datasets/movie_ratings/training_data.csv'
 data = gl.SFrame.read_csv(url, column_type_hints={"rating":int})
 data.show()
