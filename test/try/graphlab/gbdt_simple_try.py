@@ -30,6 +30,8 @@ new_features = features.remove('hour')
 n_trees = 500
 best_est = gl.boosted_trees_regression.create(data_sframe, features=new_features, target='click',
                                               max_iterations=n_trees, max_depth=5, step_size=0.1, min_child_weight=10, )
+# best_est.save('/tmp/best_estimator')
+# best_est_loaded = gl.load_model('/tmp/best_estimator')
 
 validation_data = gl.SFrame.read_csv(dataBasePath + 'validation', column_type_hints=training_column_types)
 validation_pred = best_est.predict(validation_data)
