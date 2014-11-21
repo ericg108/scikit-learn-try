@@ -9,7 +9,7 @@ from sklearn.linear_model import SGDRegressor
 from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import LogisticRegression
 
-data_dir = '/Users/nenggong/Code/Games/CTR/'
+data_dir = '/Users/nenggong/Code/Games/criteo/'
 
 train_file = data_dir + 'train_sample.tsv'
 # test_file = data_dir + 'train_sample.tsv'
